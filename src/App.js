@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Container,Row,Col} from 'react-bootstrap'
 
+//creating a class based table component
 class Table extends Component {
   constructor(props) {
     super(props)
@@ -10,6 +11,7 @@ class Table extends Component {
       isError: false
     }
   }
+  //asynch function to get data from jsonplaceholder api
   async componentDidMount() {
     this.setState({ isLoading: true })
     const response = await fetch('https://jsonplaceholder.typicode.com/users')
@@ -20,9 +22,11 @@ class Table extends Component {
       this.setState({ isError: true, isLoading: false })
     }
   }
+  // to display contents of header
   renderTableHeader = () => {
     return Object.keys(this.state.users[0]).map(attr => <th key={attr}>{attr.toUpperCase()}</th>)
   }
+  //function to display contents of table
   renderTableRows = () => {
     return this.state.users.map(user => {
       return (
