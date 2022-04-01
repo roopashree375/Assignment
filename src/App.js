@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Container,Row,Col} from 'react-bootstrap'
 
 //creating a class based table component
 class Table extends Component {
@@ -58,9 +57,7 @@ class Table extends Component {
 
     return users.length > 0
       ? (
-          <Row>
-            <Col md={6}>
-            <table>
+            <table className='tab'>
           <thead>
             <tr>
               {this.renderTableHeader()}
@@ -70,9 +67,6 @@ class Table extends Component {
             {this.renderTableRows()}
           </tbody>
         </table>
-            </Col>
-            <Col></Col>
-          </Row>
       ) : (
         <div>
           No users.
